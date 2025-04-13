@@ -8,6 +8,7 @@ import "./FilterBar.css";
 export default function FilterBar({ ...props }) {
 	const { useFilter } = useContext(SearchContext);
 
+	const [currentCategory, setCategory] = useState("");
 	const [currentTitle, setTitle] = useState("");
 	const [currentPrice, setPrice] = useState("");
 	const [currentPercentage, setPercentage] = useState("");
@@ -24,8 +25,15 @@ export default function FilterBar({ ...props }) {
 
 	return (
 		<section {...props} id="section">
-			<div id="section-filter" className=" container">
+			<div id="section-filter">
 				<div id="filter-wrapper">
+					<Filter
+						name="category"
+						className="margin-right-md"
+						onChange={(event) => setCategory(event.target.value)}>
+						<Option value="Animals">Animals</Option>
+						<Option value="Shelters">Shelters</Option>
+					</Filter>
 					<Filter
 						name="title"
 						className="margin-right-md"
