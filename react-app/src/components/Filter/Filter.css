@@ -1,0 +1,11 @@
+#filter {
+	height: 4rem;
+	min-width: 25.6rem;
+
+	border-radius: 15px;
+	border: 1px solid var(--black);
+	font-size: 1.6rem;
+	font-weight: 400;
+	color: var(--black--text);
+	padding: 0.8rem 1.6rem;
+}

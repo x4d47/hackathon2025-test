@@ -1,0 +1,83 @@
+.card {
+	border-radius: 15px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+	text-align: center;
+
+	transition: all 0.3s;
+}
+.card_simple {
+	padding: 2.4rem 1.6rem;
+}
+
+.card_full {
+	border: 1px solid var(--black);
+	overflow: hidden;
+}
+
+.card_simple .card_img {
+	max-height: 25.6rem;
+	width: auto;
+}
+.card_full .card_img {
+	max-height: 12.8rem;
+	width: auto;
+}
+.card_full .paragraph {
+	text-align: justify;
+
+	display: -webkit-box; /* Встановлює "гнучкий блок" для підтримки обрізання */
+	-webkit-line-clamp: 3; /* Кількість рядків, які мають бути видимими */
+	-webkit-box-orient: vertical; /* Вертикальна орієнтація */
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.card__value {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card__value__price,
+.card__value__percent {
+	font-size: 2rem;
+	font-weight: 300;
+}
+
+.card__value__price::before {
+	font-weight: 400;
+	content: "$";
+	color: var(--black);
+}
+
+.card__value__percent::before {
+	font-weight: 400;
+	content: "%";
+	color: var(--black);
+}
+
+.card:hover {
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	transform: translateY(-5%);
+}
+
+#card__top {
+	text-align: left;
+	padding: 1.6rem;
+	background-color: var(--light-gray);
+}
+
+#card__top__id {
+	font-size: 1.6rem;
+	color: var(--black--text);
+}
+
+#card__top__id::before {
+	font-weight: 500;
+	content: "ID: ";
+	color: var(--black);
+}
+
+#card__wrapper {
+	padding: 1.6rem 1.6rem 2.4rem 1.6rem;
+}

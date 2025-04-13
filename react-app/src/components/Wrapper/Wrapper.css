@@ -1,0 +1,7 @@
+.padding-height {
+	padding: 1.6rem 0;
+}
+
+.border-bottom {
+	border-bottom: 1px solid var(--black);
+}

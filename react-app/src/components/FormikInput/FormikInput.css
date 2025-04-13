@@ -1,0 +1,45 @@
+/* FormikInputs.css */
+
+.formik_input__container {
+	position: relative;
+	margin-bottom: 2.4rem;
+	width: 100%;
+}
+
+.formik_input__container label {
+	display: block;
+	font-size: 1.4rem;
+	font-weight: 500;
+	color: var(--black);
+	padding: 0.4rem 0.8rem;
+}
+
+.formik_input__container input {
+	height: 4rem;
+	width: 100%;
+
+	font-style: "Montserrat", sans-serif;
+	font-size: 1.6rem;
+	color: var(--black--text);
+
+	border: 1px solid var(--black);
+	border-radius: 15px;
+	padding: 0.8rem 1.6rem;
+}
+
+.formik_input__container span {
+	display: block;
+	position: absolute;
+	top: 100%;
+
+	padding: 0.4rem 0.8rem;
+	color: var(--red);
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.formik__icon {
+	position: absolute;
+	top: 54%;
+	right: 0.8rem;
+}

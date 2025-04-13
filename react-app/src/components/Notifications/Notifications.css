@@ -1,0 +1,93 @@
+.notification__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.2rem;
+
+	position: absolute;
+	top: 1.6rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
+
+	padding: 1.6rem 0 1.6rem 3.6rem;
+	width: 35%; /* Важливо, щоб це працювало як треба */
+
+	border-radius: 15px;
+
+	animation: slideDown 0.5s forwards;
+}
+
+.notification__wrapper {
+	display: flex;
+	align-items: center;
+	gap: 1.2rem;
+}
+
+.notification__icon_container {
+	height: 2.4rem;
+	width: 2.4rem;
+}
+
+.notification__text {
+	font-size: 1.6rem;
+	font-weight: 500;
+}
+
+.notification__close {
+	all: unset;
+	height: 2.4rem;
+	width: 2.4rem;
+	padding: 0 0.8rem;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.notification__close:hover {
+	filter: brightness(70%);
+}
+
+@keyframes slideDown {
+	from {
+		transform: translateX(-50%) translateY(-100%);
+	}
+	to {
+		transform: translateX(-50%) translateY(0);
+	}
+}
+
+.color__red {
+	color: #b71c1c;
+	fill: #b71c1c;
+}
+
+.bg__red {
+	border: 1px solid #b71c1c;
+	box-shadow: 2px 2px 15px #ef9a9a89;
+	background-color: rgb(255, 184, 184);
+}
+
+.close__red {
+	border-left: 1px solid #b71c1c7e;
+
+	fill: #b71c1c;
+}
+
+.color__green {
+	color: #1cb072;
+	fill: #1cb072;
+}
+
+.bg__green {
+	border: 1px solid #1cb072;
+	box-shadow: 2px 2px 15px #8efecf;
+	background-color: #caf7e4;
+}
+
+.close__green {
+	border-left: 1px solid #1cb77689;
+
+	fill: #1cb072;
+}
