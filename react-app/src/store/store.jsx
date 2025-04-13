@@ -12,15 +12,24 @@ const cartPersistConfig = {
 	storage,
 };
 
+const favoritePersistConfig = {
+	key: "cart",
+	storage,
+};
+
 const authPersistConfig = {
 	key: "auth",
 	storage,
 };
-
 const persistedCartReducer = persistReducer(
 	cartPersistConfig,
 	cartSlice.reducer
 );
+const persistedFavoriteReducer = persistReducer(
+	favoritePersistConfig,
+	cartSlice.reducer
+);
+
 const persistedAuthReducer = persistReducer(
 	authPersistConfig,
 	authSlice.reducer
@@ -29,6 +38,7 @@ const persistedAuthReducer = persistReducer(
 const store = configureStore({
 	reducer: {
 		cart: persistedCartReducer,
+		favorite: persistedFavoriteReducer,
 		auth: persistedAuthReducer,
 		error: errorSlice.reducer,
 	},
