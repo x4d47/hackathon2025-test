@@ -4,8 +4,8 @@
 
 ## Технології
 
-* **Фронтенд:** React, Vite, React Router, Redux (з Redux Toolkit та Redux Persist), Axios, Formik, Yup
-* **Бекенд:** Node.js, Express
+* **Фронтенд:** React, Vite, React Router, Redux (з Redux Toolkit та Redux Persist)
+* **Бекенд:** Node.js, ExpressJS
 * **База даних:** MySQL (на основі залежностей та коду сервісів)
 * **Автентифікація:** JWT (JSON Web Tokens)
 
