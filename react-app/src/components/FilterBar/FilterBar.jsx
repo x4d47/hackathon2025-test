@@ -9,8 +9,10 @@ import Input from "../Input/Input";
 export default function FilterBar({ ...props }) {
 	const { useFilter } = useContext(SearchContext);
 
-	const [currentCategory, setCategory] = useState("");
+	const [currentCategory, setCategory] = useState("Animals");
+	const [currentSecCategory, setSecCategory] = useState("");
 	const [currentTitle, setTitle] = useState("");
+	const [currentLocation, setLocation] = useState("");
 	const [currentPrice, setPrice] = useState("");
 	const [currentPercentage, setPercentage] = useState("");
 	const { updateKeyword } = useContext(SearchContext);
@@ -43,12 +45,41 @@ export default function FilterBar({ ...props }) {
 						<Option value="Shelters">Shelters</Option>
 					</Filter>
 					<Filter
+						name="sec_category"
+						className="margin-right-md"
+						onChange={(event) => setSecCategory(event.target.value)}>
+						<Option value="">All</Option>
+						{
+							currentCategory == "Animals" 
+							? (
+								<>
+									<Option value="Cats">Cats</Option>
+									<Option value="Dogs">Dogs</Option>
+								</>
+							)
+							: (
+								<>
+									<Option value="Shelter">Shelter</Option>
+									<Option value="Vet Clinick">Vet Clinick</Option>
+								</>
+							)
+						}
+						
+					</Filter>
+					<Filter
 						name="title"
 						className="margin-right-md"
 						onChange={(event) => setTitle(event.target.value)}>
 						<Option value="">Without sorting</Option>
 						<Option value="aZ">A-Z</Option>
 						<Option value="zA">Z-A</Option>
+					</Filter>
+					<Filter
+						name="location"
+						className="margin-right-md"
+						onChange={(event) => setLocation(event.target.value)}>
+						<Option value="">Any</Option>
+						<Option value="My">My location</Option>
 					</Filter>
 				</div>
 				<Button type="outline" onClick={handleButtonFilter}>
