@@ -36,7 +36,7 @@ function App() {
 				<LinkButton to="/home" isActive={currentPage}>
 					Home
 				</LinkButton>
-				<LinkButton to="/catalog" isActive={currentPage}>
+				<LinkButton to="/search" isActive={currentPage}>
 					Search
 				</LinkButton>
 				<LinkButton
@@ -49,7 +49,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Auth />} />
 				<Route path="/home" element={<Home />} />
-				<Route path="/catalog" element={<Catalog />} />
+				<Route path="/search" element={<Catalog />} />
 				<Route
 					path="/item/:id"
 					element={
