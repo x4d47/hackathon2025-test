@@ -42,8 +42,10 @@ export default function CardProduct({
 				<div className="card card_full">
 					<div id="card__top">
 						<p id="card__top__id">{id}</p>
-						<img src="heart.svg" width={32} height={32}></img>
-						<button onClick={handleAddToFavorites}>adadsas</button>
+
+						<button onClick={handleAddToFavorites} className="card__favorite">
+							<img src="heart.svg" width={32} height={32}></img>
+						</button>
 					</div>
 					<div id="card__wrapper">
 						<img src={imgSrc} alt={title} className="card_img margin-btm-sm" />

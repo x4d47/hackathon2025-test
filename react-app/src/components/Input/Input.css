@@ -15,6 +15,7 @@
 .input-element__input {
 	height: 4rem;
 	min-width: 25.6rem;
+	width: 100%;
 
 	font-style: "Montserrat", sans-serif;
 	font-size: 1.6rem;

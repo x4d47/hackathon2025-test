@@ -1,6 +1,7 @@
 #filter {
 	height: 4rem;
-	min-width: 25.6rem;
+	width: 100%;
+	min-width: 15.6rem;
 
 	border-radius: 15px;
 	border: 1px solid var(--black);

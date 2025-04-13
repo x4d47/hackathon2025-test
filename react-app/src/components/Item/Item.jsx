@@ -12,7 +12,6 @@ import Loading from "../Loading/Loading";
 
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../../store/cartSlice";
 import { addItemToCartAction } from "../../store/cartActions";
 import Notifications from "../Notifications/Notifications";
 import { errorActions } from "../../store/errorSlice";

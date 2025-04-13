@@ -36,61 +36,62 @@ export default function FilterBar({ ...props }) {
 	return (
 		<section {...props} id="section">
 			<div id="section-filter">
-				<div id="filter-wrapper">
-					<Filter
-						name="category"
-						className="margin-right-md"
-						onChange={(event) => setCategory(event.target.value)}>
-						<Option value="Animals">Animals</Option>
-						<Option value="Shelters">Shelters</Option>
-					</Filter>
-					<Filter
-						name="sec_category"
-						className="margin-right-md"
-						onChange={(event) => setSecCategory(event.target.value)}>
-						<Option value="">All</Option>
-						{
-							currentCategory == "Animals" 
-							? (
+				<div className="container filter__container">
+					<div>
+						<Input
+							type="image"
+							img={"./search.svg"}
+							id="search"
+							onChange={handleSearch}
+						/>
+					</div>
+					<div id="filter-wrapper">
+						<Filter
+							name="category"
+							className="margin-right-md"
+							onChange={(event) => setCategory(event.target.value)}>
+							<Option value="Animals">Animals</Option>
+							<Option value="Shelters">Shelters</Option>
+						</Filter>
+						<Filter
+							name="sec_category"
+							className="margin-right-md"
+							onChange={(event) => setSecCategory(event.target.value)}>
+							<Option value="">All</Option>
+							{currentCategory == "Animals" ? (
 								<>
 									<Option value="Cats">Cats</Option>
 									<Option value="Dogs">Dogs</Option>
 								</>
-							)
-							: (
+							) : (
 								<>
 									<Option value="Shelter">Shelter</Option>
 									<Option value="Vet Clinick">Vet Clinick</Option>
 								</>
-							)
-						}
-						
-					</Filter>
-					<Filter
-						name="title"
-						className="margin-right-md"
-						onChange={(event) => setTitle(event.target.value)}>
-						<Option value="">Without sorting</Option>
-						<Option value="aZ">A-Z</Option>
-						<Option value="zA">Z-A</Option>
-					</Filter>
-					<Filter
-						name="location"
-						className="margin-right-md"
-						onChange={(event) => setLocation(event.target.value)}>
-						<Option value="">Any</Option>
-						<Option value="My">My location</Option>
-					</Filter>
+							)}
+						</Filter>
+						<Filter
+							name="title"
+							className="margin-right-md"
+							onChange={(event) => setTitle(event.target.value)}>
+							<Option value="">Without sorting</Option>
+							<Option value="aZ">A-Z</Option>
+							<Option value="zA">Z-A</Option>
+						</Filter>
+						<Filter
+							name="location"
+							className="margin-right-md"
+							onChange={(event) => setLocation(event.target.value)}>
+							<Option value="">Any</Option>
+							<Option value="My">My location</Option>
+						</Filter>
+						<div className="filter__apply">
+							<Button type="outline" onClick={handleButtonFilter}>
+								Apply
+							</Button>
+						</div>
+					</div>
 				</div>
-				<Button type="outline" onClick={handleButtonFilter}>
-					Apply
-				</Button>
-				<Input
-					type="image"
-					img={"./search.svg"}
-					id="search"
-					onChange={handleSearch}
-				/>
 			</div>
 		</section>
 	);
