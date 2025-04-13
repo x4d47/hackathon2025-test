@@ -44,7 +44,9 @@ export default function SingIn({ singInOnClick }) {
 
 	const handleSubmit = (value) => {
 		dispatch(loginAction({ email: value.email, password: value.password }));
-		navigate("/catalog");
+		if (status?.type === "success") {
+			navigate("/search");
+		}
 	};
 
 	return (

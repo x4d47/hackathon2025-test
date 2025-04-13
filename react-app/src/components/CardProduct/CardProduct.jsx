@@ -1,16 +1,31 @@
 import "./CardProduct.css";
 import Button from "../Button/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToFavoritesAction } from "../../store/favoriteActions";
 
 export default function CardProduct({
 	id,
 	title,
 	description,
 	imgSrc,
-	bondPrice,
-	bondPercent,
 	type = "simple",
 }) {
 	let currentCard;
+
+	const dispatch = useDispatch();
+	const user = useSelector((state) => state.auth.user);
+
+	const handleAddToFavorites = () => {
+		if (!user) return;
+
+		dispatch(
+			addItemToFavoritesAction({
+				id,
+				title,
+				imgSrc,
+			})
+		);
+	};
 
 	switch (type) {
 		case "simple":
@@ -28,6 +43,7 @@ export default function CardProduct({
 					<div id="card__top">
 						<p id="card__top__id">{id}</p>
 						<img src="heart.svg" width={32} height={32}></img>
+						<button onClick={handleAddToFavorites}>adadsas</button>
 					</div>
 					<div id="card__wrapper">
 						<img src={imgSrc} alt={title} className="card_img margin-btm-sm" />
