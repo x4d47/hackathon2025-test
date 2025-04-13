@@ -42,23 +42,6 @@ export default function FilterBar({ ...props }) {
 						<Option value="aZ">A-Z</Option>
 						<Option value="zA">Z-A</Option>
 					</Filter>
-					<Filter
-						name="price"
-						className="margin-right-md"
-						onChange={(event) => setPrice(event.target.value)}>
-						<Option value="">All price</Option>
-						<Option value="highPrice">High price</Option>
-						<Option value="lowPrice">Low price</Option>
-					</Filter>
-					<Filter
-						name="percentage"
-						className="margin-right-md"
-						onChange={(event) => setPercentage(event.target.value)}>
-						<Option value="">All percentage</Option>
-						<Option value="1.5">1.5%</Option>
-						<Option value="2.5">2.5%</Option>
-						<Option value="5">5%</Option>
-					</Filter>
 				</div>
 				<Button type="outline" onClick={handleButtonFilter}>
 					Apply

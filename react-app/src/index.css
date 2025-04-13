@@ -16,6 +16,10 @@ body {
 	height: 100vh;
 }
 
+#root{
+	min-width: 360px;
+}
+
 main {
 	flex: 1;
 }
