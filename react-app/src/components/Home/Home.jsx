@@ -64,7 +64,7 @@ export default function Home() {
 		<>
 		<main className="CardsContainer">
 			<h1>Тварини</h1>
-			<CardWrapper className="CardsWrapper">
+			<CardWrapper className="grid grid--3-col gap--96 container CardsWrapper">
 				{currentCards.map((item) => (
 					<CardProduct key={item.title.toLowerCase()} {...item} />
 				))}
@@ -80,7 +80,7 @@ export default function Home() {
 		<hr />
 		<main className="CardsContainer">
 		<h1>Притулки</h1>
-			<CardWrapper className="CardsWrapper">
+			<CardWrapper className="grid grid--3-col gap--96 container CardsWrapper">
 				{currentCards.map((item) => (
 					<CardProduct key={item.title.toLowerCase()} {...item} />
 				))}

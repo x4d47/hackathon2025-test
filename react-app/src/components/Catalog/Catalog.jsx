@@ -22,16 +22,11 @@ export default function Catalog() {
 	return (
 		<main>
 			<FilterBar className="margin-btm-md" />
-			<div className="ContentWindow">
-				<div className="FilterSideBar">
-				    <p>Filters</p>
-				</div>
-				<CardWrapper className="CardsWrapper">
-					{cards.map((item) => (
-						<CardProduct key={item.title.toLowerCase()} {...item} type="full" />
-					))}
-				</CardWrapper>
-			</div>
+			<CardWrapper className="grid grid--3-col gap--96 CatCardsWrapper container" >
+				{cards.map((item) => (
+					<CardProduct key={item.title.toLowerCase()} {...item} type="full" />
+				))}
+			</CardWrapper>
 		</main>
 	);
 }
