@@ -1,40 +1,19 @@
 .footer {
-	border: 1px solid var(--black);
+	border-top: 1px solid var(--black);
 }
-
 .footer-wrapper {
-	padding: 3.2rem 0;
+	padding: 1rem 0;
 }
-
 .main {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: center;
-
-	padding-bottom: 1.6rem;
-	border-bottom: 1px solid var(--black);
 }
-
 .main_logo {
 	text-align: center;
 }
-
-.main_social-networks {
-	display: flex;
-	gap: 1.6rem;
-	justify-content: end;
-}
-
-.main_social-networks svg {
-	height: 3.6rem;
-	width: 3.6rem;
-}
-
-.main_social-networks svg:hover,
-.main_social-networks svg:active {
-	cursor: pointer;
-}
-
 .copyright {
-	padding-top: 1.6rem;
 	text-align: center;
 }
