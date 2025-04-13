@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import Logo from "../Logo/Logo";
 
 export default function Footer() {
 	return (
@@ -7,13 +8,14 @@ export default function Footer() {
 			<footer className="footer">
 				<div className="footer-wrapper">
 					<div className="main">
-						<div className="main_logo">
-							<img src="../public/bank.svg" alt="logo" width="54px" />
+						<div className="main_logo margin-btm-sm">
+							<Logo />
 						</div>
 					</div>
 					<div className="copyright">
 						<p className="paragraph">
-							2025 IoT &copy; Copyright all right reserved
+							2025 Hackathon | Test Assigment | DEADBEEF &copy; Copyright all
+							right reserved
 						</p>
 					</div>
 				</div>

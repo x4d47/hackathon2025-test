@@ -16,15 +16,21 @@ import { errorActions } from "../../store/errorSlice";
 import { useNavigate } from "react-router-dom";
 
 import Notifications from "../Notifications/Notifications";
+import Switch from "../Switch/Switch";
 
 export default function SingUp({ singUpOnClick }) {
 	const [hidePassword, setHidePassword] = useState(true);
+	const [isVolunteer, setSsVolunteer] = useState(true);
 
 	const dispatch = useDispatch();
 
 	const { status } = useSelector((state) => state.error);
 
 	const navigate = useNavigate();
+
+	const handleSwitch = () => {
+		setSsVolunteer((oldState) => !oldState);
+	};
 
 	const regEx = {
 		name: /^[a-zA-Zа-яА-Я]{2,20}$/,
@@ -49,8 +55,8 @@ export default function SingUp({ singUpOnClick }) {
 			.required("Confirm Password is required"),
 	});
 
-	const handleHidePassword = () => {
-		setHidePassword((oldState) => !oldState);
+	const handleHidePassword = (state) => {
+		setHidePassword(state);
 	};
 
 	const handleSubmit = (value) => {
@@ -80,9 +86,16 @@ export default function SingUp({ singUpOnClick }) {
 				validationSchema={validationSchema}
 				onSubmit={handleSubmit}>
 				<Form>
-					<h2 className="heading-secondary margin-btm-md">
+					<h2 className="heading-secondary margin-btm-sm">
 						Register the new account
 					</h2>
+
+					<Switch
+						isFirst={isVolunteer}
+						text={{ firstButton: "volunteer", secondButton: "shelter" }}
+						onClick={handleSwitch}
+						className="margin-btm-sm"
+					/>
 
 					<FormikInput
 						label="User name"

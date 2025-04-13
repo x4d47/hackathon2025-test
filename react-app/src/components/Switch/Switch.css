@@ -1,0 +1,5 @@
+.switch__container {
+	display: flex;
+	gap: 1rem;
+	width: 100%;
+}

@@ -5,7 +5,6 @@ import LinkButton from "./components/Header/LinkButton";
 import Home from "./components/Home/Home";
 import Catalog from "./components/Catalog/Catalog";
 import Item from "./components/Item/Item";
-import Cart from "./components/Cart/Cart";
 import { useSelector } from "react-redux";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -18,6 +17,7 @@ import Checkout from "./components/Checkout/Checkout";
 import Success from "./components/Success/Success";
 import Auth from "./components/Auth/Auth";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Favorite from "./components/Favorite/Favorite";
 
 function App() {
 	const location = useLocation();
@@ -36,20 +36,20 @@ function App() {
 				<LinkButton to="/home" isActive={currentPage}>
 					Home
 				</LinkButton>
-				<LinkButton to="/catalog" isActive={currentPage}>
-					Catalog
+				<LinkButton to="/search" isActive={currentPage}>
+					Search
 				</LinkButton>
 				<LinkButton
-					to="/cart"
+					to="/favorite"
 					isActive={currentPage}
-					cartCount={totalQuantity || null}>
-					Cart
+					FavoriteCount={totalQuantity || null}>
+					Favorite
 				</LinkButton>
 			</Header>
 			<Routes>
 				<Route path="/" element={<Auth />} />
 				<Route path="/home" element={<Home />} />
-				<Route path="/catalog" element={<Catalog />} />
+				<Route path="/search" element={<Catalog />} />
 				<Route
 					path="/item/:id"
 					element={
@@ -67,29 +67,29 @@ function App() {
 					}
 				/>
 				<Route
-					path="/cart"
+					path="/favorite"
 					element={
 						<ProtectedRoute>
-							<Cart />
+							<Favorite />
 						</ProtectedRoute>
 					}
 				/>
-				<Route
+				{/* <Route
 					path="/cart/checkout"
 					element={
 						<ProtectedRoute>
 							<Checkout />
 						</ProtectedRoute>
 					}
-				/>
-				<Route
+				/> */}
+				{/* <Route
 					path="/cart/success"
 					element={
 						<ProtectedRoute>
 							<Success />
 						</ProtectedRoute>
 					}
-				/>
+				/> */}
 			</Routes>
 			<Footer />
 		</div>

@@ -1,20 +1,17 @@
-import PRODUCTS from "../../../data/data";
 import ItemBar from "../ItemBar/ItemBar";
 import Button from "../Button/Button";
-import "./Cart.css";
+import "./Favorite.css";
 
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-export default function Cart() {
+export default function Favorite() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	// Отримуємо userId з Redux
 	const userId = useSelector((state) => state.auth.user.id);
 
-	// Отримуємо items і totalPrice для цього користувача з cart
 	const items = useSelector((state) => state.cart[userId]?.items);
 	const totalAmounts = useSelector((state) => state.cart[userId]?.totalPrice);
 
@@ -26,7 +23,6 @@ export default function Cart() {
 
 	const [cartItems, setCartItems] = useState([]);
 
-	// Якщо користувач не авторизований, відображаємо сторінку з повідомленням
 	if (!isAuthorizated) {
 		return (
 			<main className="container">
@@ -42,12 +38,11 @@ export default function Cart() {
 		);
 	}
 
-	// Якщо в кошику немає елементів
 	if (!cartItems || cartItems.length === 0) {
 		return (
 			<main>
 				<div className="container">
-					<span id="shoping-cart_empty">Shopping cart is empty!</span>
+					<span id="shoping-cart_empty">Favorite is empty!</span>
 				</div>
 			</main>
 		);
@@ -59,7 +54,7 @@ export default function Cart() {
 				<h2
 					className="heading-secondary margin-top-md margin-btm-md"
 					id="cart__heading">
-					Shopping Cart
+					Favorite
 				</h2>
 				<div id="cart__item-wrapper">
 					{cartItems.length > 0 ? (
@@ -67,7 +62,7 @@ export default function Cart() {
 							<ItemBar key={item.id} className="margin-btm-sm" {...item} />
 						))
 					) : (
-						<span>No items in cart</span>
+						<span>No items in favorite</span>
 					)}
 				</div>
 				<div id="cart__total-amout" className="margin-btm-bg">
@@ -78,7 +73,7 @@ export default function Cart() {
 				</div>
 				<div id="cart__button-wrapper" className="margin-btm-md">
 					<Button type="outline" onClick={() => navigate(-1)}>
-						Back to catalog
+						Back to search
 					</Button>
 					<Button type="solid" tag="link" to="/cart/checkout">
 						Continue
