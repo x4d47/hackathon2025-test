@@ -1,14 +1,12 @@
 .CardsContainer{
-    padding: 1em 0;
     text-align: center;
 }
 .CardsWrapper{
-    padding: 1em 0;
+    padding: 2em 0;
     align-content: center;
     row-gap: 5em;
     column-gap: 5em;
 }
 .Wrapper{
-    margin-top: 2em;
     text-align: center;
 }
