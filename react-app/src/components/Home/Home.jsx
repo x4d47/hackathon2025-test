@@ -56,15 +56,12 @@ export default function Home() {
 	const { currentCards, lazyLoading, currentLoading, currentNextQuery } =
 		useContext(ProductContext);
 
-	const randomBankObj = Math.floor(Math.random() * currentCards.length);
-
 	if (currentLoading) {
 		return <Loading />;
 	}
 
 	return (
 		<main className="margin-top-md margin-btm-md">
-			<BarProduct type="simple" {...currentCards[randomBankObj]} />
 			<CardWrapper className="grid grid--3-col gap--96 container margin-btm-md">
 				{currentCards.map((item) => (
 					<CardProduct key={item.title.toLowerCase()} {...item} />
