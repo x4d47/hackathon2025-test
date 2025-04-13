@@ -47,7 +47,7 @@ export default function Header({ children, ...props }) {
 
 	return (
 		<header className="header" {...props}>
-			<div className="header-wrapper container">
+			<div className="header-wrapper">
 				<Link to="/home">
 					<img src="../public/bank.svg" alt="logo" width="36px" />
 				</Link>

@@ -63,6 +63,7 @@ export default function Home() {
 	return (
 		<>
 		<main className="CardsContainer">
+			<h1>Тварини</h1>
 			<CardWrapper className="CardsWrapper">
 				{currentCards.map((item) => (
 					<CardProduct key={item.title.toLowerCase()} {...item} />
@@ -78,12 +79,13 @@ export default function Home() {
 		</main>
 		<hr />
 		<main className="CardsContainer">
-			<CardWrapper className="grid grid--3-col gap--96 container margin-btm-md">
+		<h1>Притулки</h1>
+			<CardWrapper className="CardsWrapper">
 				{currentCards.map((item) => (
 					<CardProduct key={item.title.toLowerCase()} {...item} />
 				))}
 			</CardWrapper>
-			<Wrapper style={{ textAlign: "center" }}>
+			<Wrapper className="Wrapper">
 				<Button
 					style={currentNextQuery ? null : { display: "none" }}
 					onClick={lazyLoading}>
