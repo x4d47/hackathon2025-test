@@ -7,5 +7,6 @@ export default function ProtectedRoute({ children }) {
 	if (!isAuthorizated) {
 		return <Navigate to="/" replace />;
 	}
+
 	return children;
 }
