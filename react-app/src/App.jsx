@@ -61,7 +61,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/item/:id"
+					path="/animal/:id"
 					element={
 						<ProtectedRoute>
 							<Item />

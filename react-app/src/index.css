@@ -16,7 +16,7 @@ body {
 	height: 100vh;
 }
 
-#root{
+#root {
 	min-width: 360px;
 }
 
@@ -161,3 +161,84 @@ main {
 	gap: 9.6rem;
 	grid-template-rows: auto;
 }
+
+/* --Mobile Styles-- */
+@media (max-width: 768px) {
+	html {
+		font-size: 56.25%; /* Зменшуємо базовий розмір шрифту для кращої читабельності */
+	}
+
+	.container {
+		width: 90%; /* Робимо контейнер більш гнучким */
+	}
+
+	.grid--2-col,
+	.grid--3-col,
+	.grid--4-col {
+		grid-template-columns: 1fr; /* Перемикаємо на одноколонкову розкладку */
+	}
+
+	.gap--36,
+	.gap--96 {
+		gap: 2.4rem; /* Зменшуємо відступи між елементами */
+	}
+
+	.margin-btm-md {
+		margin-bottom: 3.2rem; /* Зменшуємо відступи */
+	}
+
+	.margin-btm-bg {
+		margin-bottom: 6.4rem; /* Зменшуємо відступи */
+	}
+
+	.margin-btm-biggest {
+		margin-bottom: 14rem; /* Значно зменшуємо великий відступ */
+	}
+
+	.margin-right-md:not(:last-child) {
+		margin-right: 0; /* Забираємо правий відступ для одноколонкової розкладки */
+		margin-bottom: 1.6rem; /* Додаємо невеликий відступ знизу між елементами */
+	}
+
+	.margin-top-md {
+		margin-top: 3.2rem; /* Зменшуємо верхній відступ */
+	}
+
+	.heading-primary {
+		font-size: 3.6rem; /* Зменшуємо розмір основного заголовка */
+	}
+
+	.heading-secondary {
+		font-size: 2rem; /* Зменшуємо розмір другорядного заголовка */
+	}
+
+	.heading-tertiary {
+		font-size: 1.8rem; /* Зменшуємо розмір третинного заголовка */
+	}
+
+	.paragraph {
+		font-size: 1.6rem; /* Збільшуємо розмір абзацу для кращої читабельності */
+	}
+}
+
+/* Додаткові невеликі екрани (менше 600px) */
+@media (max-width: 600px) {
+	html {
+		font-size: 50%; /* Ще трохи зменшуємо базовий розмір шрифту */
+	}
+
+	.heading-primary {
+		font-size: 3.2rem;
+	}
+
+	.heading-secondary {
+		font-size: 1.8rem;
+	}
+}
+
+/* Найменші екрани (менше 360px) - за потреби */
+/* @media (max-width: 360px) {
+  html {
+    font-size: 43.75%;
+  }
+} */

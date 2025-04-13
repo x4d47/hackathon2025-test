@@ -8,20 +8,18 @@ import Input from "../Input/Input";
 
 export default function FilterBar({ ...props }) {
 	const { useFilter } = useContext(SearchContext);
+	const { updateKeyword } = useContext(SearchContext);
 
 	const [currentCategory, setCategory] = useState("Animals");
 	const [currentSecCategory, setSecCategory] = useState("");
 	const [currentTitle, setTitle] = useState("");
 	const [currentLocation, setLocation] = useState("");
-	const [currentPrice, setPrice] = useState("");
-	const [currentPercentage, setPercentage] = useState("");
-	const { updateKeyword } = useContext(SearchContext);
+	const [searchKeyword, setSearchKeyword] = useState(""); // Додали стан для пошуку
 
 	function handleButtonFilter() {
 		const filterParametersObj = {
 			title: currentTitle,
-			price: currentPrice,
-			percentage: currentPercentage,
+			// price: currentPrice, // Видалили price, якщо він більше не використовується
 		};
 
 		useFilter(filterParametersObj);
@@ -29,6 +27,7 @@ export default function FilterBar({ ...props }) {
 
 	function handleSearch(event) {
 		const value = event.target.value;
+		setSearchKeyword(value); // Оновлюємо стан значення пошуку
 		const validation = value.trim();
 		updateKeyword(validation);
 	}
@@ -39,10 +38,12 @@ export default function FilterBar({ ...props }) {
 				<div className="container filter__container">
 					<div>
 						<Input
-							type="image"
+							type="image" // Використовується для стилів
+							typeValue="text" // Встановлює фактичний тип input на "text"
 							img={"./search.svg"}
 							id="search"
 							onChange={handleSearch}
+							value={searchKeyword} // Прив'язали значення input до стану
 						/>
 					</div>
 					<div id="filter-wrapper">

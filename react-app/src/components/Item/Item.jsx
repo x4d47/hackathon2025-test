@@ -1,10 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import BarProduct from "../BarProduct/BarProduct";
-import Wrapper from "../Wrapper/Wrapper";
-import Filter from "../Filter/Filter";
-import Option from "../Option/Option";
-import Input from "../Input/Input";
 import Button from "../Button/Button";
 import "./Item.css";
 import useAxios from "../../hooks/useAxios";
@@ -16,18 +12,24 @@ import { addItemToCartAction } from "../../store/cartActions";
 import Notifications from "../Notifications/Notifications";
 import { errorActions } from "../../store/errorSlice";
 
+const CHARACTERISTICS = ["Lviv", "Dog"];
+
+const DUMMY_DATA = {
+	id: 2231,
+	title: "Dog",
+	description: "Dog description",
+	imgSrc: "https://images.unsplash.com/photo-1560807707-8cc77767d783",
+	charArray: CHARACTERISTICS,
+};
+
 export default function Item() {
 	const { getDataById } = useAxios();
 	const { id } = useParams();
 	const [loading, setLoading] = useState(true);
-	const [cardData, setCardData] = useState(null); // Стан для збереження даних картки
 
 	const dispatch = useDispatch();
 
 	const { status } = useSelector((state) => state.error);
-
-	const quantityRef = useRef(null);
-	const bondPercentRef = useRef(null);
 
 	const navigate = useNavigate();
 
@@ -53,90 +55,37 @@ export default function Item() {
 		return <Loading />;
 	}
 
-	function validationInputField(value) {
-		if (!value) {
-			dispatch(
-				errorActions.setStatus({
-					type: "error",
-					text: "Type peace count!",
-				})
-			);
-		} else if (!isNaN(value)) {
-			return parseInt(value);
-		} else {
-			dispatch(
-				errorActions.setStatus({
-					type: "error",
-					text: "Only number!",
-				})
-			);
-		}
-	}
-
-	function validationSelectField(value) {
-		if (!isNaN(value)) {
-			return parseFloat(value);
-		} else {
-			dispatch(
-				errorActions.setStatus({
-					type: "error",
-					text: "Change percentage!",
-				})
-			);
-		}
-	}
-
-	const handleClickAddItemToCart = () => {
-		const { id, title, imgSrc, bondPrice } = cardData;
-
-		dispatch(
-			addItemToCartAction({
-				id,
-				title,
-				imgSrc,
-				bondPrice,
-				bondPercent: validationSelectField(bondPercentRef.current.value),
-				quantity: validationInputField(quantityRef.current.value),
-			})
-		);
-	};
-
 	return (
 		<main id="wrapper">
 			<Notifications
 				type={status?.type}
 				action={status?.text}
-				handleCloseAction={() => dispatch(errorActions.clearStatus())} // Виправлено на clearStatus
+				handleCloseAction={() => dispatch(errorActions.clearStatus())}
 			/>
-			<BarProduct type="full" {...cardData}>
-				<Wrapper style={{ display: "flex", gap: "3.2rem" }}>
-					<Input
-						title="Peace count"
-						placeholder="10..."
-						typeValue="number"
-						min="0"
-						ref={quantityRef}></Input>
-					<Filter title="Percent value" ref={bondPercentRef}>
-						<Option>Select percent value</Option>
-						{cardData.bondPercent.map((item, id) => (
-							<Option key={id} value={item}>
-								{item}
-							</Option>
-						))}
-					</Filter>
-				</Wrapper>
-			</BarProduct>
+			<div className="margin-btm-md">
+				<BarProduct type="full" {...DUMMY_DATA}>
+					<div>
+						<p className="proifile__text-info margin-btm-sm">
+							Lviv Shelther for homeless pets
+						</p>
+						<p className="proifile__text-info margin-btm-sm">
+							Lviv, st. Stepana Bandery 10
+						</p>
+						<p className="proifile__text-info margin-btm-bg">063-792-2868</p>
+					</div>
+				</BarProduct>
+			</div>
 			<div className="container" id="action-bar">
-				<span id="price">
-					Price: ${cardData.bondPrice.toLocaleString("de-DE")}
-				</span>
-				<div id="button-wrapper">
+				<div>
 					<Button tag="link" type="outline" onClick={() => navigate(-1)}>
 						Go back
 					</Button>
-					<Button type="solid" onClick={handleClickAddItemToCart}>
-						Add to card
+				</div>
+				<div id="button-wrapper">
+					<Button tag="link" type="outline" onClick={() => navigate(-1)}>
+						Donate me!
 					</Button>
+					<Button type="solid">Go to the shelter</Button>
 				</div>
 			</div>
 		</main>
