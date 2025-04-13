@@ -85,11 +85,9 @@ export default function FilterBar({ ...props }) {
 							<Option value="">Any</Option>
 							<Option value="My">My location</Option>
 						</Filter>
-						<div className="filter__apply">
-							<Button type="outline" onClick={handleButtonFilter}>
-								Apply
-							</Button>
-						</div>
+						<Button type="outline" onClick={handleButtonFilter}>
+							Apply
+						</Button>
 					</div>
 				</div>
 			</div>
