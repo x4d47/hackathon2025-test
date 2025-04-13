@@ -12,20 +12,21 @@ import { addItemToCartAction } from "../../store/cartActions";
 import Notifications from "../Notifications/Notifications";
 import { errorActions } from "../../store/errorSlice";
 
-const CHARACTERISTICS = ["Lviv", "Dog"];
+// const CHARACTERISTICS = ["Lviv", "Dog"];
 
-const DUMMY_DATA = {
-	id: 2231,
-	title: "Dog",
-	description: "Dog description",
-	imgSrc: "https://images.unsplash.com/photo-1560807707-8cc77767d783",
-	charArray: CHARACTERISTICS,
-};
+// const DUMMY_DATA = {
+// 	id: 2231,
+// 	title: "Dog",
+// 	description: "Dog description",
+// 	imgSrc: "https://images.unsplash.com/photo-1560807707-8cc77767d783",
+// 	charArray: CHARACTERISTICS,
+// };
 
 export default function Item() {
 	const { getDataById } = useAxios();
 	const { id } = useParams();
 	const [loading, setLoading] = useState(true);
+	const [cardData, setCardData] = useState(true);
 
 	const dispatch = useDispatch();
 
@@ -39,7 +40,7 @@ export default function Item() {
 				"http://127.0.0.1:8080/bank",
 				parseInt(id)
 			);
-			setCardData(response); // Зберігаємо дані у стані cardData
+			setCardData(response);
 		} catch (error) {
 			console.error("Error fetching data:", error);
 		} finally {
@@ -63,7 +64,7 @@ export default function Item() {
 				handleCloseAction={() => dispatch(errorActions.clearStatus())}
 			/>
 			<div className="margin-btm-md">
-				<BarProduct type="full" {...DUMMY_DATA}>
+				<BarProduct type="full" {...cardData}>
 					<div>
 						<p className="proifile__text-info margin-btm-sm">
 							Lviv Shelther for homeless pets
