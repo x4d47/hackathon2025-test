@@ -51,6 +51,7 @@ import Loading from "../Loading/Loading.jsx";
 import "./Home.css";
 
 import { ProductContext } from "../../context/Context.jsx";
+import { useState } from "react";
 
 export default function Home() {
 	const { currentCards, lazyLoading, currentLoading, currentNextQuery } = useContext(ProductContext);

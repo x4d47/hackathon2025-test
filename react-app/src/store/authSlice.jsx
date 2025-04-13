@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import useAxios from "../hooks/useAxios";
 import { jwtDecode } from "jwt-decode";
 
 const authSlice = createSlice({
