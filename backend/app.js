@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import bankRouter from "./routes/bankRoutes.js";
 import authRouter from "./routes/authRoutes.js";
+import shelterRouter from "./routes/shelterRoutes.js"
+import animalRouter from "./routes/animalRoutes.js"
 
 const app = express();
 
@@ -9,6 +11,8 @@ app.use(express.json());
 app.use(cors());
 app.use("/bank", bankRouter);
 app.use("/auth", authRouter);
+app.use("/shelter", shelterRouter);
+app.use("/animal", animalRouter);
 
 app.use((err, req, res, next) => {
 	console.error(err.stack);
