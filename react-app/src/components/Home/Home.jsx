@@ -48,19 +48,35 @@ import CardProduct from "../CardProduct/CardProduct";
 import Button from "../Button/Button.jsx";
 import Wrapper from "../Wrapper/Wrapper.jsx";
 import Loading from "../Loading/Loading.jsx";
+import "./Home.css";
 
 import { ProductContext } from "../../context/Context.jsx";
 
 export default function Home() {
-	const { currentCards, lazyLoading, currentLoading, currentNextQuery } =
-		useContext(ProductContext);
+	const { currentCards, lazyLoading, currentLoading, currentNextQuery } = useContext(ProductContext);
 
 	if (currentLoading) {
 		return <Loading />;
 	}
 
 	return (
-		<main className="margin-top-md margin-btm-md">
+		<>
+		<main className="CardsContainer">
+			<CardWrapper className="CardsWrapper">
+				{currentCards.map((item) => (
+					<CardProduct key={item.title.toLowerCase()} {...item} />
+				))}
+			</CardWrapper>
+			<Wrapper className="Wrapper">
+				<Button
+					style={currentNextQuery ? null : { display: "none" }}
+					onClick={lazyLoading}>
+					View more
+				</Button>
+			</Wrapper>
+		</main>
+		<hr />
+		<main className="CardsContainer">
 			<CardWrapper className="grid grid--3-col gap--96 container margin-btm-md">
 				{currentCards.map((item) => (
 					<CardProduct key={item.title.toLowerCase()} {...item} />
@@ -74,5 +90,6 @@ export default function Home() {
 				</Button>
 			</Wrapper>
 		</main>
+		</>
 	);
 }
