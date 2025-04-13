@@ -2,7 +2,7 @@ import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-export default function LinkButton({ children, cartCount, ...props }) {
+export default function LinkButton({ children, FavoriteCount, ...props }) {
 	return (
 		<>
 			<li className="links_item">
@@ -15,7 +15,7 @@ export default function LinkButton({ children, cartCount, ...props }) {
 					{...props}
 					onClick={props.onClick}>
 					{children}
-					{cartCount && (
+					{FavoriteCount && (
 						<span
 							className={
 								props.isActive === children.toLowerCase()

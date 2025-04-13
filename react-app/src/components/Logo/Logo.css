@@ -1,0 +1,16 @@
+.logo__container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.6rem;
+}
+
+.logo__wrapper a {
+	text-decoration: none;
+}
+
+.logo__text {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--black);
+}
