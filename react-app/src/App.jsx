@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import LinkButton from "./components/Header/LinkButton";
@@ -7,11 +7,10 @@ import Catalog from "./components/Catalog/Catalog";
 import Item from "./components/Item/Item";
 import { useSelector } from "react-redux";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Edit from "./components/Edit/Edit";
 
-import { useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
-import Notification from "./components/Notifications/Notifications";
 import Profile from "./components/Profile/Profile";
 import Checkout from "./components/Checkout/Checkout";
 import Success from "./components/Success/Success";
@@ -45,11 +44,22 @@ function App() {
 					FavoriteCount={totalQuantity || null}>
 					Favorite
 				</LinkButton>
+				<LinkButton to="/edit" isActive={currentPage}>
+					Edit
+				</LinkButton>
 			</Header>
 			<Routes>
 				<Route path="/" element={<Auth />} />
 				<Route path="/home" element={<Home />} />
 				<Route path="/search" element={<Catalog />} />
+				<Route
+					path="/edit"
+					element={
+						<ProtectedRoute edit>
+							<Edit />
+						</ProtectedRoute>
+					}
+				/>
 				<Route
 					path="/item/:id"
 					element={

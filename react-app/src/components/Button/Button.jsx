@@ -9,6 +9,7 @@ export default function Button({
 	type = "solid",
 	isBig = false,
 	isSmall = false,
+	className = "",
 	...props
 }) {
 	let style;
@@ -30,7 +31,7 @@ export default function Button({
 	switch (tag) {
 		case "button":
 			component = (
-				<button className={style} {...props}>
+				<button className={`${style} ${className}`} {...props}>
 					{children}
 				</button>
 			);

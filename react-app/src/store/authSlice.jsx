@@ -10,11 +10,11 @@ const authSlice = createSlice({
 			id: null,
 			name: "",
 			email: "",
+			isShelter: true,
 		},
 		token: null,
 	},
 	reducers: {
-		// тестовий редюсер
 		loginUser(state, action) {
 			const { token, userName, email } = action.payload;
 

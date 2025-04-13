@@ -85,3 +85,37 @@
 .card__favorite {
 	all: unset;
 }
+
+.card__button_wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.6rem;
+}
+
+.card__btn-close {
+	all: unset;
+	position: absolute;
+	top: 1.2rem;
+	right: 1.2rem;
+
+	height: 2.4rem;
+	width: 2.4rem;
+
+	font-size: 1.6rem;
+	font-weight: 500;
+	color: var(--light-gray);
+	line-height: 1.6rem;
+	text-align: center;
+
+	border-radius: 30px;
+	background-color: var(--blacky);
+
+	transition: all 0.3s;
+}
+
+.card__btn-close:hover,
+.card__btn-close:active {
+	background-color: var(--blacky);
+	box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.15);
+}

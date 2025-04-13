@@ -58,6 +58,35 @@ export default function CardProduct({
 				</div>
 			);
 			break;
+		case "edit":
+			currentCard = (
+				<div className="card card_full">
+					<div id="card__top">
+						<p id="card__top__id">{id}</p>
+					</div>
+					<div id="card__wrapper">
+						<img src={imgSrc} alt={title} className="card_img margin-btm-sm" />
+						<h2 className="heading-secondary margin-btm-sm">{title}</h2>
+						<p className="paragraph margin-btm-md">{description}</p>
+						<div className="card__button_wrapper">
+							<Button
+								tag="link"
+								to={`/edit/${id}`}
+								isBig="true"
+								className="card__button-edit">
+								edit
+							</Button>
+							<Button
+								type="outline"
+								isBig="true"
+								className="card__button-delete">
+								Delete
+							</Button>
+						</div>
+					</div>
+				</div>
+			);
+			break;
 	}
 	return currentCard;
 }

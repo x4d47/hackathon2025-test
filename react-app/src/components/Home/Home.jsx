@@ -1,48 +1,4 @@
-// import { useContext, useEffect } from "react";
-// import BarProduct from "../ BarProduct/BarProduct.jsx";
-// import CardWrapper from "../CardProduct/CardWrapper.jsx";
-// import CardProduct from "../CardProduct/CardProduct";
-// import Button from "../Button/Button.jsx";
-// import Wrapper from "../Wrapper/Wrapper.jsx";
-
-// import Loading from "../Loading/Loading.jsx";
-
-// import { ProductContext, SearchContext } from "../../context/Context.jsx";
-// import { useState } from "react";
-
-// export default function Home() {
-// 	const { currentCards, lazyLoading, loading } = useContext(ProductContext);
-// 	const [isLoading, SetIsLoading] = useState(loading);
-
-// 	useEffect(() => {
-// 		SetIsLoading((oldLoading) => !oldLoading);
-// 	}, [loading]);
-
-// 	const randomBankObj = Math.floor(Math.random() * currentCards.length);
-
-// 	const homePage = (
-// 		<main className="margin-top-md margin-btm-md">
-// 			<BarProduct type="simple" {...currentCards[randomBankObj]} />
-// 			<CardWrapper className="grid grid--3-col gap--96 container margin-btm-md">
-// 				{currentCards.map((item) => (
-// 					<CardProduct key={item.title.toLowerCase()} {...item} />
-// 				))}
-// 			</CardWrapper>
-// 			<Wrapper style={{ textAlign: "center" }}>
-// 				<Button onClick={() => lazyLoading()}>View more</Button>
-// 			</Wrapper>
-// 		</main>
-// 	);
-
-// 	const LoadingPage = (
-// 		<Load></Load>
-// 	);
-
-// 	return {isLoading ?  : homePage};
-// }
-
-import { useContext, useEffect } from "react";
-import BarProduct from "../BarProduct/BarProduct.jsx";
+import { useContext } from "react";
 import CardWrapper from "../CardProduct/CardWrapper.jsx";
 import CardProduct from "../CardProduct/CardProduct";
 import Button from "../Button/Button.jsx";
@@ -61,9 +17,13 @@ export default function Home() {
 	}
 
 	return (
-		<>
-			<main className="CardsContainer">
-				<h1>Тварини</h1>
+		<main className="CardsContainer">
+			<div className="margin-btm-bg">
+				<h2
+					className="heading-secondary margin-top-md margin-btm-md"
+					id="cart__heading">
+					Animals
+				</h2>
 				<CardWrapper className="grid grid--3-col gap--96 container CardsWrapper">
 					{currentCards.map((item) => (
 						<CardProduct key={item.title.toLowerCase()} {...item} />
@@ -76,23 +36,26 @@ export default function Home() {
 						View more
 					</Button>
 				</Wrapper>
-			</main>
-			<hr />
-			<main className="CardsContainer">
-				<h1>Притулки</h1>
+			</div>
+			<div className="margin-btm-md">
+				<h2
+					className="heading-secondary margin-top-md margin-btm-bg"
+					id="cart__heading">
+					Shelters
+				</h2>
 				<CardWrapper className="grid grid--3-col gap--96 container CardsWrapper">
 					{currentCards.map((item) => (
 						<CardProduct key={item.title.toLowerCase()} {...item} />
 					))}
 				</CardWrapper>
-				<Wrapper className="Wrapper">
+				<Wrapper className="Wrapper margin">
 					<Button
 						style={currentNextQuery ? null : { display: "none" }}
 						onClick={lazyLoading}>
 						View more
 					</Button>
 				</Wrapper>
-			</main>
-		</>
+			</div>
+		</main>
 	);
 }
