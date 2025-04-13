@@ -1,0 +1,21 @@
+#area {
+	display: flex;
+	height: 65vh;
+	align-items: center;
+	justify-content: center;
+}
+
+.spinner {
+	height: 2.4rem;
+	width: 2.4rem;
+	border: 1px solid;
+	border-color: var(--black) transparent var(--black) transparent;
+	border-radius: 50%;
+	animation: spin 1.3s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}

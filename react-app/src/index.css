@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family: "Montserrat", sans-serif;
+	font-size: 62.5%;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+main {
+	flex: 1;
+}
+
+/* --Global style-- */
+
+.container {
+	margin: 0 auto;
+	width: 120rem;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+/* --Colors-- */
+@property --black {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: rgb(66, 66, 66);
+}
+
+@property --blacky {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: rgb(46, 46, 46);
+}
+
+@property --black--text {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: rgb(51, 51, 51);
+}
+
+@property --light-gray {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: rgb(224, 224, 224);
+}
+
+@property --gray {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: rgb(192, 192, 192);
+}
+
+@property --red {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: rgb(159, 42, 42);
+}
+
+@property --breeze {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: rgb(58, 128, 139);
+}
+
+/* --Margins--- */
+.margin-btm-smaller {
+	margin-bottom: 0.8rem;
+}
+
+.margin-btm-sm {
+	margin-bottom: 1.6rem;
+}
+
+.margin-btm-md {
+	margin-bottom: 4.8rem;
+}
+
+.margin-btm-bg {
+	margin-bottom: 9.6rem;
+}
+
+.margin-btm-biggest {
+	margin-bottom: 29rem;
+}
+
+.margin-right-md:not(:last-child) {
+	margin-right: 2.4rem;
+}
+
+.margin-top-md {
+	margin-top: 4.8rem;
+}
+
+/* --Text-- */
+
+.heading-primary {
+	font-size: 4.8rem;
+	color: var(--black);
+}
+
+.heading-secondary {
+	font-size: 2.4rem;
+	color: var(--black);
+}
+.heading-tertiary {
+	font-size: 2rem;
+	color: var(--black);
+}
+
+.heading-quaternary {
+	font-size: 1.6rem;
+	color: var(--black);
+}
+
+.paragraph {
+	font-size: 1.4rem;
+	color: var(--black);
+}
+
+/* --Grids-- */
+.grid {
+	display: grid;
+}
+
+.grid--2-col {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-col {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-col {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.gap--36 {
+	gap: 3.6rem;
+	grid-template-rows: auto;
+}
+
+.gap--96 {
+	gap: 9.6rem;
+	grid-template-rows: auto;
+}

@@ -1,0 +1,15 @@
+#section {
+	border-bottom: 1px solid var(--black);
+	padding: 1.6rem 0;
+}
+
+#section-filter {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#filter-wrapper {
+	display: flex;
+	gap: 4.8rem;
+}

@@ -1,0 +1,52 @@
+.button-wrapper {
+	text-align: center;
+}
+
+.button {
+	all: unset;
+
+	padding: 1.2rem 2.4rem;
+
+	border-radius: 10px;
+
+	font-size: 1.6rem;
+	font-weight: 400;
+
+	cursor: pointer;
+}
+
+.button-solid {
+	background-color: var(--black);
+	color: #fff;
+}
+
+.button-outline {
+	border: 1px solid var(--black);
+	color: var(--black--text);
+}
+
+.button-big {
+	width: 60%;
+}
+
+.button-small {
+	padding: 0;
+
+	height: 3.2rem;
+	width: 3.2rem;
+	text-align: center;
+}
+
+.button-solid:hover,
+.button-solid:active {
+	background-color: var(--blacky);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.button-outline:hover,
+.button-outline:active {
+	border: 1px solid transparent;
+	background-color: var(--blacky);
+	color: #fff;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}

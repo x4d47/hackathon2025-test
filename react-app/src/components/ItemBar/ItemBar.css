@@ -1,0 +1,72 @@
+/* ItemBar.css */
+
+#item-bar {
+	display: grid;
+	grid-template-columns: 1fr 4fr 2fr 1fr 1.5fr;
+	align-items: center;
+
+	border-radius: 30px;
+	border: 1px solid var(--black);
+	padding: 0.4rem;
+
+	position: relative;
+}
+
+#item-bar__wrapper {
+	display: flex;
+	align-items: center;
+	gap: 1.6rem;
+}
+
+#item-bar__count-peace {
+	font-size: 1.6rem;
+	color: var(--black--text);
+}
+
+#item-bar__img {
+	height: 11.2rem;
+}
+
+#item-bar__heading,
+#item-bar__count-peace {
+	text-align: center;
+}
+
+#item-bar__percentage {
+	font-size: 1.6rem;
+	font-weight: 300;
+	color: var(--black--text);
+}
+
+#item-bar__price {
+	font-size: 2rem;
+	font-weight: 500;
+	color: var(--black--text);
+}
+
+#item-bar__btn-close {
+	all: unset;
+	position: absolute;
+	top: 1.2rem;
+	right: 1.2rem;
+
+	height: 2.4rem;
+	width: 2.4rem;
+
+	font-size: 1.6rem;
+	font-weight: 500;
+	color: var(--light-gray);
+	line-height: 1.6rem;
+	text-align: center;
+
+	border-radius: 30px;
+	background-color: var(--black);
+
+	transition: all 0.3s;
+}
+
+#item-bar__btn-close:hover,
+#item-bar__btn-close:active {
+	background-color: var(--blacky);
+	box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.15);
+}
