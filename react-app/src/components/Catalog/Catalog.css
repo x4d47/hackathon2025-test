@@ -1,0 +1,20 @@
+.ContentWindow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.FilterSideBar{
+    padding: 1rem;
+    min-width: 200px;
+    border-right: 1px solid black;
+}
+.CardsWrapper{
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    row-gap: 5em;
+    column-gap: 5em;
+}

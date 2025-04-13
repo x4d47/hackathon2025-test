@@ -1,10 +1,9 @@
 .card {
 	border-radius: 15px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-
 	text-align: center;
-
 	transition: all 0.3s;
+	width: 400px;
 }
 .card_simple {
 	padding: 2.4rem 1.6rem;

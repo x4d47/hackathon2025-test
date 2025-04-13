@@ -1,5 +1,5 @@
 .header {
-	padding: 1.6rem 0;
+	padding: 1.6rem;
 	border: 1px solid var(--black);
 }
 
@@ -7,6 +7,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	height: 4rem;
 }
 
