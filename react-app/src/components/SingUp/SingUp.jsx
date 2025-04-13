@@ -5,6 +5,7 @@ import { Formik, Form } from "formik";
 import FormikInput from "../FormikInput/FormikInput";
 import * as Yup from "yup";
 import Button from "../Button/Button";
+import Switch from "../Switch/Switch";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -19,6 +20,8 @@ import Notifications from "../Notifications/Notifications";
 
 export default function SingUp({ singUpOnClick }) {
 	const [hidePassword, setHidePassword] = useState(true);
+
+	const [isVolunteer, setIsVolunteer] = useState(true);
 
 	const dispatch = useDispatch();
 
@@ -83,6 +86,8 @@ export default function SingUp({ singUpOnClick }) {
 					<h2 className="heading-secondary margin-btm-md">
 						Register the new account
 					</h2>
+
+					<Switch className="smargin-btm-md" isFirst={isVolunteer} onClick />
 
 					<FormikInput
 						label="User name"

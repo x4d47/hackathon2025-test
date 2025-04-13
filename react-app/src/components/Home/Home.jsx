@@ -50,7 +50,6 @@ import Wrapper from "../Wrapper/Wrapper.jsx";
 import Loading from "../Loading/Loading.jsx";
 
 import { ProductContext } from "../../context/Context.jsx";
-import { useState } from "react";
 
 export default function Home() {
 	const { currentCards, lazyLoading, currentLoading, currentNextQuery } =
