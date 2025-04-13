@@ -1,7 +1,6 @@
 import { useContext } from "react";
-import "./Header.css";
-import Input from "../Input/Input";
 import { SearchContext } from "../../context/Context.jsx";
+import "./Header.css";
 
 import React from "react";
 import { useLocation } from "react-router-dom";
@@ -20,7 +19,6 @@ export default function Header({ children, ...props }) {
 	const userName = useSelector((state) => state.auth.user.name);
 	const isAuth = useSelector((state) => state.isAuthorizated);
 
-	const { updateKeyword } = useContext(SearchContext);
 
 	useEffect(() => {
 		setIsSearch(() => {
@@ -39,12 +37,6 @@ export default function Header({ children, ...props }) {
 		});
 	}, [currentPath]);
 
-	function handleSearch(event) {
-		const value = event.target.value;
-		const validation = value.trim();
-		updateKeyword(validation);
-	}
-
 	return (
 		<header className="header" {...props}>
 			<div className="header-wrapper">
@@ -52,14 +44,6 @@ export default function Header({ children, ...props }) {
 					<img src="../public/bank.svg" alt="logo" width="36px" />
 				</Link>
 				<ul className="links">{children}</ul>
-				{isSearch && (
-					<Input
-						type="image"
-						img={"./search.svg"}
-						id="search"
-						onChange={handleSearch}
-					/>
-				)}
 				{isProfile && (
 					<Link to="/profile" className="header__profile_link">
 						{userName || "Login or Register"} &#8599;

@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import { useContext, useState } from "react";
 import { SearchContext } from "../../context/Context.jsx";
 import "./FilterBar.css";
+import Input from "../Input/Input";
 
 export default function FilterBar({ ...props }) {
 	const { useFilter } = useContext(SearchContext);
@@ -12,6 +13,7 @@ export default function FilterBar({ ...props }) {
 	const [currentTitle, setTitle] = useState("");
 	const [currentPrice, setPrice] = useState("");
 	const [currentPercentage, setPercentage] = useState("");
+	const { updateKeyword } = useContext(SearchContext);
 
 	function handleButtonFilter() {
 		const filterParametersObj = {
@@ -21,6 +23,12 @@ export default function FilterBar({ ...props }) {
 		};
 
 		useFilter(filterParametersObj);
+	}
+
+	function handleSearch(event) {
+		const value = event.target.value;
+		const validation = value.trim();
+		updateKeyword(validation);
 	}
 
 	return (
@@ -46,6 +54,12 @@ export default function FilterBar({ ...props }) {
 				<Button type="outline" onClick={handleButtonFilter}>
 					Apply
 				</Button>
+				<Input
+					type="image"
+					img={"./search.svg"}
+					id="search"
+					onChange={handleSearch}
+				/>
 			</div>
 		</section>
 	);
