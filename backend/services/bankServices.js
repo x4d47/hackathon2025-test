@@ -21,15 +21,6 @@ const bankQuery = `
         bank_characteristics ON bank.id = bank_characteristics.bank_id
 `;
 
-// async function getBanks(orderBy = "") {
-// 	const [rows] = await pool.query(`${bankQuery} GROUP BY bank.id ${orderBy};`);
-// 	return parseBank(rows);
-// }
-
-// async function getBanksByAlphabet() {
-//     return getBanks('ORDER BY bank.title ASC');
-// }
-
 async function getBanks(key, type, only) {
 	let partQuerySortingType = "";
 	let partQueryIncludeOnly = "";
