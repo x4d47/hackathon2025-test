@@ -3,11 +3,10 @@ import Button from "../Button/Button";
 import "./Favorite.css";
 
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 export default function Favorite() {
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const userId = useSelector((state) => state.auth.user.id);
@@ -74,9 +73,6 @@ export default function Favorite() {
 				<div id="cart__button-wrapper" className="margin-btm-md">
 					<Button type="outline" onClick={() => navigate(-1)}>
 						Back to search
-					</Button>
-					<Button type="solid" tag="link" to="/cart/checkout">
-						Continue
 					</Button>
 				</div>
 			</div>

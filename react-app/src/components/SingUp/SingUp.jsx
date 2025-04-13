@@ -5,9 +5,9 @@ import { Formik, Form } from "formik";
 import FormikInput from "../FormikInput/FormikInput";
 import * as Yup from "yup";
 import Button from "../Button/Button";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
+import { useEffect } from "react";
 import { registrationAction } from "../../store/authActions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -25,8 +25,8 @@ export default function SingUp({ singUpOnClick }) {
 	const dispatch = useDispatch();
 
 	const { status } = useSelector((state) => state.error);
-
 	const navigate = useNavigate();
+	// const isAuthorizated = useSelector((state) => state.auth.isAuthorizated);
 
 	const handleSwitch = () => {
 		setSsVolunteer((oldState) => !oldState);
@@ -67,7 +67,7 @@ export default function SingUp({ singUpOnClick }) {
 				password: value.password,
 			})
 		);
-		navigate("/catalog");
+		navigate("/search");
 	};
 
 	return (
@@ -110,9 +110,9 @@ export default function SingUp({ singUpOnClick }) {
 						placeholder="exaple@adress.com"
 					/>
 					<FormikInput
-						type={!hidePassword && "password"}
+						type={hidePassword && "password"}
 						includeEye="true"
-						isHideEye={hidePassword}
+						isHideEye={!hidePassword}
 						eyeOnClick={handleHidePassword}
 						label="Password"
 						name="password"
@@ -121,9 +121,9 @@ export default function SingUp({ singUpOnClick }) {
 						placeholder="Some password"
 					/>
 					<FormikInput
-						type={!hidePassword && "password"}
+						type={hidePassword && "password"}
 						includeEye="true"
-						isHideEye={hidePassword}
+						isHideEye={!hidePassword}
 						eyeOnClick={handleHidePassword}
 						label="Retype password"
 						name="retypePassword"

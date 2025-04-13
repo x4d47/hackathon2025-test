@@ -13,7 +13,7 @@ const cartPersistConfig = {
 };
 
 const favoritePersistConfig = {
-	key: "cart",
+	key: "favorite",
 	storage,
 };
 
