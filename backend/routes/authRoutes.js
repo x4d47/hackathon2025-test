@@ -57,7 +57,15 @@ authRouter.post("/login", async (req, res) => {
 		if (await bcrypt.compare(password, rows[0].password_hash)) {
 			const token = createToken(rows[0].email, rows[0].id);
 
-			res.status(200).json({ token });
+			let account_profile;
+
+			if (rows[0].type == "volunteer") {
+				account_profile = await queryDB(`SELECT account_id, name FROM VolunteerProfiles WHERE account_id = ?`, [rows[0].id]);
+			} else {
+				account_profile = await queryDB(`SELECT * FROM ShelterProfiles WHERE account_id = ?`, [rows[0].id]);
+			}
+
+			res.status(200).json({ token, account_type: rows[0].type, account_profile });
 		} else {
 			res.status(401).json({ message: "Invalid password" });
 		}
