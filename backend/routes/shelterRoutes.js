@@ -5,7 +5,7 @@ import queryDB from "../config/db.js";
 const shelterRouter = express.Router();
 
 shelterRouter.post("/profile", verifyToken, async (req, res) => {
-    const { name, category, address, city, description, accepts_animals } = req.body;
+    const { name, category, address, city, description, phone_number, accepts_animals } = req.body;
 
     try {
         const city_rows = await queryDB(`SELECT id FROM City WHERE state = ? LIMIT 1`, [city]);
@@ -19,12 +19,12 @@ shelterRouter.post("/profile", verifyToken, async (req, res) => {
             cityID = city_rows[0].id
         }
 
-        await queryDB(`INSERT INTO ShelterProfiles (account_id, name, category, address, city_id, description, accepts_animals)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+        await queryDB(`INSERT INTO ShelterProfiles (account_id, name, category, address, city_id, description, phone_number, accepts_animals)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE
             name=VALUES(name), category=VALUES(category), address=VALUES(address), city_id=VALUES(city_id),
-            description=VALUES(description), accepts_animals=VALUES(accepts_animals);`,
-            [req.user.userId, name, category, address, cityID, description, accepts_animals]
+            description=VALUES(description), phone_number=VALUES(phone_number), accepts_animals=VALUES(accepts_animals);`,
+            [req.user.userId, name, category, address, cityID, description, phone_number, accepts_animals]
         );
 
         res.status(201).json({});

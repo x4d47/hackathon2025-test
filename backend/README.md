@@ -442,6 +442,7 @@ auth: Bearer <your_token>
         "address": "123 Main St",
         "city": "New York",
         "description": "We are a no-kill shelter dedicated to...",
+        "phone_number": "+380148813370",
         "accepts_animals": true
     }
     ```
