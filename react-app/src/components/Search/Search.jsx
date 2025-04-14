@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import "./Catalog.css";
+import "./Search.css";
 import FilterBar from "../FilterBar/FilterBar";
 import CardWrapper from "../CardProduct/CardWrapper";
 import CardProduct from "../CardProduct/CardProduct";
@@ -9,7 +9,7 @@ import Notifications from "../Notifications/Notifications.jsx";
 import { SearchContext } from "../../context/Context.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { errorActions } from "../../store/errorSlice.jsx";
-export default function Catalog() {
+export default function Search() {
 	const { cards, currentLoading } = useContext(SearchContext);
 	const { status } = useSelector((state) => state.error);
 	const dispatch = useDispatch();

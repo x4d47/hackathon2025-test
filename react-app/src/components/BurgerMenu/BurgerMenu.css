@@ -1,0 +1,36 @@
+.burger-menu__overlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	display: flex;
+	justify-content: center; /* Центрує по горизонталі */
+	align-items: center; /* Центрує по вертикалі */
+}
+
+.burger-menu__link {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column; /* Вміст буде вертикальним */
+	align-items: center; /* Вирівнювання по горизонталі */
+}
+
+@media (max-width: 970px) {
+	.burger-menu__link ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.burger-menu__link li {
+		margin: 10px 0; /* Відступи між пунктами меню */
+	}
+
+	.header__profile_link {
+		margin-top: 20px;
+	}
+}

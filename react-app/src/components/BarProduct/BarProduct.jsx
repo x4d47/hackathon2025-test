@@ -1,4 +1,3 @@
-import React from "react";
 import "./BarProduct.css";
 import Characteristic from "../Characteristic/Characteristic";
 import Wrapper from "../Wrapper/Wrapper";
@@ -30,7 +29,7 @@ export default function BarProduct({
 			currentBar = (
 				<div className="bar-product-info bar-product-info_same-height container">
 					<div className="bar-product-info_image">
-						<img src={imgSrc} />
+						<img src={`/${imgSrc}`} />
 					</div>
 					<div className="bar-product-info_description bar-product-info_description__full">
 						<Wrapper>
@@ -38,9 +37,12 @@ export default function BarProduct({
 								<Characteristic key={id}>{item}</Characteristic>
 							))}
 						</Wrapper>
-						<h1 className="heading-primary ">{title}</h1>
-						<p className="paragraph">{description}</p>
-						{children}
+						<div>
+							<h1 className="heading-primary ">{title}</h1>
+							<p className="paragraph">{description}</p>
+						</div>
+						<div className="bar__support">{children}</div>
+						<div></div>
 					</div>
 				</div>
 			);
