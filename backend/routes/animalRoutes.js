@@ -163,9 +163,11 @@ animalRouter.get("/:id", async (req, res) => {
                 a.specie,
                 a.age,
                 a.created_at,
-                sp.name AS shelter_name
+                sp.name AS shelter_name,
+                p.url AS imgSrc
             FROM Animals a
             LEFT JOIN ShelterProfiles sp ON a.shelter_id = sp.account_id
+            LEFT JOIN AnimalPhotos p ON a.id = p.animal_id
             WHERE a.id = ?;`,
             [animalID]
         );
