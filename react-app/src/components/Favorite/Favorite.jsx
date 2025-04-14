@@ -64,12 +64,6 @@ export default function Favorite() {
 						<span>No items in favorite</span>
 					)}
 				</div>
-				<div id="cart__total-amout" className="margin-btm-bg">
-					<span id="cart__text">Total amount:</span>
-					<span id="cart__total-price">
-						${totalAmounts.toLocaleString("de-DE")}
-					</span>
-				</div>
 				<div id="cart__button-wrapper" className="margin-btm-md">
 					<Button type="outline" onClick={() => navigate(-1)}>
 						Back to search

@@ -86,10 +86,16 @@
 	text-align: center;
 	text-decoration: none;
 	border-radius: 20px;
-	transition: all 0.15s;
+	transition: all 0.3s;
 }
 
 .header__profile_link:hover,
 .header__profile_link:active {
 	background-color: var(--light-gray);
+	transition: all 0.3s;
+}
+
+.header__burger {
+	all: unset;
+	z-index: 3;
 }

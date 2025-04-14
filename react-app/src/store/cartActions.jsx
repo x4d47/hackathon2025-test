@@ -45,7 +45,7 @@ export const addItemToCartAction = (item) => {
 				dispatch(
 					errorActions.setStatus({
 						type: "success",
-						text: `Added to cart ${title} ${quantity} peace`,
+						text: `Added to favorite ${title} peace`,
 					})
 				);
 			}

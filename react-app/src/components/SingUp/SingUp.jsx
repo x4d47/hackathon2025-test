@@ -6,7 +6,6 @@ import FormikInput from "../FormikInput/FormikInput";
 import * as Yup from "yup";
 import Button from "../Button/Button";
 import { useState } from "react";
-
 import { registrationAction } from "../../store/authActions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";

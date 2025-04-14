@@ -21,3 +21,21 @@
 	font-size: 2.4rem;
 	font-weight: 500;
 }
+
+.profile__text-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.profile__text-info {
+	font-size: 1.6rem;
+	padding: 0.8rem 1.6rem;
+	width: 100%;
+	border-bottom: 1px solid var(--gray);
+}
+
+.item__contacts {
+	width: 100%;
+}

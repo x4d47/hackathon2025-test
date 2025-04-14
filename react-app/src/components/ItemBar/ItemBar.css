@@ -5,7 +5,7 @@
 	grid-template-columns: 1fr 4fr 2fr 1fr 1.5fr;
 	align-items: center;
 
-	border-radius: 30px;
+	border-radius: 8px;
 	border: 1px solid var(--black);
 	padding: 0.4rem;
 

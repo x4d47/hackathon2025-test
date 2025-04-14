@@ -161,3 +161,164 @@ main {
 	gap: 9.6rem;
 	grid-template-rows: auto;
 }
+
+/* --Mobile Styles-- */
+@media (max-width: 768px) {
+	html {
+		font-size: 56.25%; /* Зменшуємо базовий розмір шрифту для кращої читабельності */
+	}
+
+	.container {
+		width: 90%; /* Робимо контейнер більш гнучким */
+	}
+
+	.grid--2-col,
+	.grid--3-col,
+	.grid--4-col {
+		grid-template-columns: 1fr; /* Перемикаємо на одноколонкову розкладку */
+	}
+
+	.gap--36,
+	.gap--96 {
+		gap: 2.4rem; /* Зменшуємо відступи між елементами */
+	}
+
+	.margin-btm-md {
+		margin-bottom: 3.2rem; /* Зменшуємо відступи */
+	}
+
+	.margin-btm-bg {
+		margin-bottom: 6.4rem; /* Зменшуємо відступи */
+	}
+
+	.margin-btm-biggest {
+		margin-bottom: 14rem; /* Значно зменшуємо великий відступ */
+	}
+
+	.margin-right-md:not(:last-child) {
+		margin-right: 0; /* Забираємо правий відступ для одноколонкової розкладки */
+		margin-bottom: 1.6rem; /* Додаємо невеликий відступ знизу між елементами */
+	}
+
+	.margin-top-md {
+		margin-top: 3.2rem; /* Зменшуємо верхній відступ */
+	}
+
+	.heading-primary {
+		font-size: 3.6rem; /* Зменшуємо розмір основного заголовка */
+	}
+
+	.heading-secondary {
+		font-size: 2rem; /* Зменшуємо розмір другорядного заголовка */
+	}
+
+	.heading-tertiary {
+		font-size: 1.8rem; /* Зменшуємо розмір третинного заголовка */
+	}
+
+	.paragraph {
+		font-size: 1.6rem; /* Збільшуємо розмір абзацу для кращої читабельності */
+	}
+}
+
+/* Додаткові невеликі екрани (менше 600px) */
+@media (max-width: 600px) {
+	html {
+		font-size: 50%; /* Ще трохи зменшуємо базовий розмір шрифту */
+	}
+
+	.heading-primary {
+		font-size: 3.2rem;
+	}
+
+	.heading-secondary {
+		font-size: 1.8rem;
+	}
+}
+
+/* --- Mobile (до 600px) --- */
+@media (max-width: 600px) {
+	html {
+		font-size: 50%;
+	}
+
+	.container {
+		width: 92%;
+	}
+
+	.grid--2-col,
+	.grid--3-col,
+	.grid--4-col {
+		grid-template-columns: 1fr;
+	}
+
+	.gap--36,
+	.gap--96 {
+		gap: 2rem;
+	}
+}
+
+/* --- Tablet (601px – 1024px) --- */
+@media (min-width: 601px) and (max-width: 1024px) {
+	html {
+		font-size: 56.25%;
+	}
+
+	.container {
+		width: 95%;
+	}
+
+	.grid--3-col,
+	.grid--4-col {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gap--36 {
+		gap: 2.4rem;
+	}
+
+	.gap--96 {
+		gap: 4.8rem;
+	}
+}
+
+/* --- Laptop (1025px – 1439px) --- */
+@media (min-width: 1025px) and (max-width: 1439px) {
+	html {
+		font-size: 62.5%;
+	}
+
+	.container {
+		width: 100rem;
+	}
+
+	.grid--4-col {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* --- Desktop FullHD (1440px – 2559px) --- */
+@media (min-width: 1440px) and (max-width: 2559px) {
+	.container {
+		width: 120rem;
+	}
+}
+
+/* --- Ultra-Wide / 4K (2560px і більше) --- */
+@media (min-width: 2560px) {
+	html {
+		font-size: 75%; /* Збільшуємо масштаб інтерфейсу */
+	}
+
+	.container {
+		width: 140rem;
+	}
+
+	.heading-primary {
+		font-size: 6rem;
+	}
+
+	.paragraph {
+		font-size: 2rem;
+	}
+}
