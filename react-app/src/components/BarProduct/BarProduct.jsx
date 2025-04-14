@@ -29,7 +29,7 @@ export default function BarProduct({
 			currentBar = (
 				<div className="bar-product-info bar-product-info_same-height container">
 					<div className="bar-product-info_image">
-						<img src={imgSrc} />
+						<img src={`/${imgSrc}`} />
 					</div>
 					<div className="bar-product-info_description bar-product-info_description__full">
 						<Wrapper>

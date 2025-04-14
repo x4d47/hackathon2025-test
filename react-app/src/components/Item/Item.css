@@ -22,17 +22,17 @@
 	font-weight: 500;
 }
 
-.proifile__text_wrapper {
+.profile__text-wrapper {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
-.proifile__text-info {
+.profile__text-info {
 	font-size: 1.6rem;
 	padding: 0.8rem 1.6rem;
-	width: 50%;
+	width: 100%;
 	border-bottom: 1px solid var(--gray);
 }
 

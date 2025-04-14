@@ -66,13 +66,13 @@ export default function Item() {
 			<div className="margin-btm-md">
 				<BarProduct type="full" {...cardData}>
 					<div>
-						<p className="proifile__text-info margin-btm-sm">
+						<p className="profile__text-info margin-btm-sm">
 							Lviv Shelther for homeless pets
 						</p>
-						<p className="proifile__text-info margin-btm-sm">
+						<p className="profile__text-info margin-btm-sm">
 							Lviv, st. Stepana Bandery 10
 						</p>
-						<p className="proifile__text-info margin-btm-bg">063-792-2868</p>
+						<p className="profile__text-info margin-btm-bg">063-792-2868</p>
 					</div>
 				</BarProduct>
 			</div>

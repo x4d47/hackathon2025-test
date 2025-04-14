@@ -84,8 +84,8 @@ export default function FilterBar({ ...props }) {
 				<div className="container filter__container">
 					<div className="filter__wrapper">
 						<Input
-							type="image" // Використовується для стилів
-							typeValue="text" // Встановлює фактичний тип input на "text"
+							type="image"
+							typeValue="text"
 							img={"./search.svg"}
 							id="search"
 							onChange={handleSearch}

@@ -2,6 +2,7 @@ import "./CardProduct.css";
 import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCartAction } from "../../store/cartActions";
+import { Link } from "react-router-dom";
 
 export default function CardProduct({
 	id,
@@ -34,7 +35,9 @@ export default function CardProduct({
 		case "simple":
 			currentCard = (
 				<div className="card card_simple">
-					<img src={imgSrc} alt={title} className="card_img margin-btm-sm" />
+					<Link to={`/${direction}/${id}`}>
+						<img src={imgSrc} alt={title} className="card_img margin-btm-sm" />
+					</Link>
 					<h2 className="heading-secondary margin-btm-sm">{title}</h2>
 					<p className="paragraph">{description}</p>
 				</div>

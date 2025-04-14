@@ -20,15 +20,17 @@
 	align-items: center; /* Вирівнювання по горизонталі */
 }
 
-.burger-menu__link ul {
-	list-style: none;
-	padding: 0;
-}
+@media (max-width: 970px) {
+	.burger-menu__link ul {
+		list-style: none;
+		padding: 0;
+	}
 
-.burger-menu__link li {
-	margin: 10px 0; /* Відступи між пунктами меню */
-}
+	.burger-menu__link li {
+		margin: 10px 0; /* Відступи між пунктами меню */
+	}
 
-.header__profile_link {
-	margin-top: 20px; /* Відступ для профілю, якщо хочеш, щоб він був під іншими елементами */
+	.header__profile_link {
+		margin-top: 20px;
+	}
 }
