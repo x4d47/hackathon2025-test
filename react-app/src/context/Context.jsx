@@ -1,53 +1,37 @@
-import React, { createContext, useState, useEffect, useCallback } from "react";
+import { createContext, useState, useEffect } from "react";
 import useAxios from "../hooks/useAxios";
 
 const ProductContext = createContext();
 const SearchContext = createContext();
 
 const Context = (props) => {
-	const { getSliceData } = useAxios();
+	const { getData } = useAxios();
 
-	const clusterSize = 3;
-
-	const [currentIndex, setIndex] = useState(0);
 	const [currentLoading, SetLoading] = useState(true);
-	const [currentNextQuery, setNextQuery] = useState(true);
 	const [currentCards, setCards] = useState([]);
 
 	useEffect(() => {
-		lazyLoading();
+		loadAllCards();
 	}, []);
 
-	const lazyLoading = async () => {
-		const nextClusterIndex = currentIndex + clusterSize;
+	const loadAllCards = async () => {
 		try {
-			const { cards, nextQuery } = await getSliceData(
-				"http://127.0.0.1:8080/bank/cluster",
-				currentIndex
-			);
-
-			// Фільтруємо нові картки, щоб уникнути дублювання
-			setCards((oldCards) => {
-				const uniqueCards = [...oldCards, ...cards];
-				return uniqueCards;
-			});
-
+			const data = await getData("http://localhost:8080/animal/search");
+			setCards(data);
 			SetLoading(false);
-			setNextQuery(nextQuery);
-			setIndex(nextClusterIndex);
 		} catch (error) {
-			console.error("Error loading data:", error);
+			console.error("Error loading cards:", error);
 		}
 	};
 
 	return (
-		<ProductContext.Provider
-			value={{ currentCards, lazyLoading, currentLoading, currentNextQuery }}>
+		<ProductContext.Provider value={{ currentCards, currentLoading }}>
 			{props.children}
 		</ProductContext.Provider>
 	);
 };
 
+// Search частину можна залишити без змін
 const Search = (props) => {
 	const { getData } = useAxios();
 
@@ -72,10 +56,7 @@ const Search = (props) => {
 			});
 			const { title, price, percentage } = sortTypeObj;
 
-			// по суті, якщо друге сортування застосовано, тобто воно true, тоді перше сортування застосоване не буде. І якщо 2 сортування застосовано, то всепівер поверне price
 			const sortingType = () => {
-				price ? price : title;
-
 				if (price) {
 					return price;
 				} else if (title) {
