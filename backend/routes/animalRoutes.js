@@ -107,11 +107,13 @@ animalRouter.get("/search", async (req, res) => {
             a.created_at,
             sp.name AS shelter_name,
             sp.address,
-            c.state AS city
+            c.state AS city,
+            p.url AS imgSrc
         FROM Animals a
         LEFT JOIN Accounts acc ON a.shelter_id = acc.id
         LEFT JOIN ShelterProfiles sp ON acc.id = sp.account_id
         LEFT JOIN City c ON sp.city_id = c.id
+        LEFT JOIN AnimalPhotos p ON a.id = p.animal_id
         WHERE 1=1`;
 
         const params = [];
@@ -155,7 +157,16 @@ animalRouter.get("/:id", async (req, res) => {
 
     try {
         const [animal] = await queryDB(
-            `SELECT * FROM Animals WHERE id = ?`,
+            `SELECT 
+                a.id,
+                a.name,
+                a.specie,
+                a.age,
+                a.created_at,
+                sp.name AS shelter_name
+            FROM Animals a
+            LEFT JOIN ShelterProfiles sp ON a.shelter_id = sp.account_id
+            WHERE a.id = ?;`,
             [animalID]
         );
 
