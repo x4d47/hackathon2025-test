@@ -32,6 +32,7 @@ export default function Profile() {
 	const dispatch = useDispatch();
 
 	const { status } = useSelector((state) => state.error);
+	const { type } = useSelector((state) => state.auth.user);
 
 	const handleLogOut = () => {
 		dispatch(logoutAction());
@@ -46,7 +47,7 @@ export default function Profile() {
 			/>
 			<div className="proifile__text_wrapper">
 				<h2 className="heading-secondary margin-btm-md">Profile</h2>
-				{isShelter ? Shelter : Volunter}
+				{type}
 				<Button type="solid" onClick={handleLogOut}>
 					Log out
 				</Button>
