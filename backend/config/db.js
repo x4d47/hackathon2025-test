@@ -6,7 +6,8 @@ const pool = mariadb.createPool({
     user: config.DB_USER,       // Логін
     password: config.DB_PASS,       // Пароль
     database: config.DB_NAME,   // Назва бази даних
-    connectionLimit: 10  // Ліміт на кількість одночасних зʼєднань
+    connectionLimit: 10,  // Ліміт на кількість одночасних зʼєднань
+    allowPublicKeyRetrieval: true 
 });
 
 export default async function queryDB(query, params) {

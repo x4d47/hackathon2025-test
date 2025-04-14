@@ -7,7 +7,6 @@ import * as Yup from "yup";
 import Button from "../Button/Button";
 import { useState } from "react";
 
-import { useEffect } from "react";
 import { registrationAction } from "../../store/authActions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -55,14 +54,14 @@ export default function SingUp({ singUpOnClick }) {
 			.required("Confirm Password is required"),
 	});
 
-	const handleHidePassword = (state) => {
-		setHidePassword(state);
+	const handleHidePassword = () => {
+		setHidePassword((state) => !state);
 	};
 
 	const handleSubmit = (value) => {
 		dispatch(
 			registrationAction({
-				userName: value.name,
+				account_type: isVolunteer ? "volunteer" : "shelter",
 				email: value.email,
 				password: value.password,
 			})
@@ -97,12 +96,12 @@ export default function SingUp({ singUpOnClick }) {
 						className="margin-btm-sm"
 					/>
 
-					<FormikInput
+					{/* <FormikInput
 						label="User name"
 						name="name"
 						id="name"
 						placeholder="Andriy"
-					/>
+					/> */}
 					<FormikInput
 						label="Email"
 						name="email"

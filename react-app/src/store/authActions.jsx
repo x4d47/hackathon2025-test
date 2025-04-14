@@ -9,13 +9,15 @@ export const loginAction = (data) => {
 			const { isAuthorizated } = getState().auth;
 			if (!isAuthorizated) {
 				const response = await axios.post(
-					"http://127.0.0.1:8080/auth/login",
+					"http://localhost:8080/auth/login",
 					data
 				);
 
-				const { token, userName, email } = response.data;
+				const { token, userName, email, account_type } = response.data;
 
-				dispatch(authActions.loginUser({ token, userName, email }));
+				dispatch(
+					authActions.loginUser({ token, userName, email, type: account_type })
+				);
 				dispatch(
 					errorActions.setStatus({
 						type: "success",
@@ -42,13 +44,15 @@ export const registrationAction = (data) => {
 			const { isAuthorizated } = getState().auth;
 			if (!isAuthorizated) {
 				const response = await axios.post(
-					"http://127.0.0.1:8080/auth/register",
+					"http://localhost:8080/auth/register",
 					data
 				);
 
-				const { token, userName, email } = response.data;
+				const { token, userName, email, account_type } = response.data;
 
-				dispatch(authActions.loginUser({ token, userName, email }));
+				dispatch(
+					authActions.loginUser({ token, userName, email, type: account_type })
+				);
 				dispatch(
 					errorActions.setStatus({
 						type: "success",
