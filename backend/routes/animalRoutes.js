@@ -109,8 +109,8 @@ animalRouter.get("/search", async (req, res) => {
             sp.address,
             c.state AS city
         FROM Animals a
-        JOIN Accounts acc ON a.shelter_id = acc.id
-        JOIN ShelterProfiles sp ON acc.id = sp.account_id
+        LEFT JOIN Accounts acc ON a.shelter_id = acc.id
+        LEFT JOIN ShelterProfiles sp ON acc.id = sp.account_id
         LEFT JOIN City c ON sp.city_id = c.id
         WHERE 1=1`;
 
