@@ -14,7 +14,7 @@ shelterRouter.post("/profile", verifyToken, async (req, res) => {
 
         if(city_rows.length == 0) {
             await queryDB(`INSERT INTO City (state) VALUES (?)`, [city]);
-            cityID = await queryDB(`SELECT id FROM City WHERE state = ? LIMIT 1`, [city]);
+            [cityID].id = await queryDB(`SELECT id FROM City WHERE state = ? LIMIT 1`, [city]);
         } else {
             cityID = city_rows[0].id
         }
