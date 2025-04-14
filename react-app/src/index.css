@@ -236,9 +236,89 @@ main {
 	}
 }
 
-/* Найменші екрани (менше 360px) - за потреби */
-/* @media (max-width: 360px) {
-  html {
-    font-size: 43.75%;
-  }
-} */
+/* --- Mobile (до 600px) --- */
+@media (max-width: 600px) {
+	html {
+		font-size: 50%;
+	}
+
+	.container {
+		width: 92%;
+	}
+
+	.grid--2-col,
+	.grid--3-col,
+	.grid--4-col {
+		grid-template-columns: 1fr;
+	}
+
+	.gap--36,
+	.gap--96 {
+		gap: 2rem;
+	}
+}
+
+/* --- Tablet (601px – 1024px) --- */
+@media (min-width: 601px) and (max-width: 1024px) {
+	html {
+		font-size: 56.25%;
+	}
+
+	.container {
+		width: 95%;
+	}
+
+	.grid--3-col,
+	.grid--4-col {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gap--36 {
+		gap: 2.4rem;
+	}
+
+	.gap--96 {
+		gap: 4.8rem;
+	}
+}
+
+/* --- Laptop (1025px – 1439px) --- */
+@media (min-width: 1025px) and (max-width: 1439px) {
+	html {
+		font-size: 62.5%;
+	}
+
+	.container {
+		width: 100rem;
+	}
+
+	.grid--4-col {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* --- Desktop FullHD (1440px – 2559px) --- */
+@media (min-width: 1440px) and (max-width: 2559px) {
+	.container {
+		width: 120rem;
+	}
+}
+
+/* --- Ultra-Wide / 4K (2560px і більше) --- */
+@media (min-width: 2560px) {
+	html {
+		font-size: 75%; /* Збільшуємо масштаб інтерфейсу */
+	}
+
+	.container {
+		width: 140rem;
+	}
+
+	.heading-primary {
+		font-size: 6rem;
+	}
+
+	.paragraph {
+		font-size: 2rem;
+	}
+}
