@@ -3,17 +3,15 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import LinkButton from "./components/Header/LinkButton";
 import Home from "./components/Home/Home";
-import Catalog from "./components/Catalog/Catalog";
+import Search from "./components/Search/Search";
 import Item from "./components/Item/Item";
 import { useSelector } from "react-redux";
 
 import Edit from "./components/Edit/Edit";
 
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Profile from "./components/Profile/Profile";
-import Checkout from "./components/Checkout/Checkout";
-import Success from "./components/Success/Success";
 import Auth from "./components/Auth/Auth";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Favorite from "./components/Favorite/Favorite";
@@ -51,7 +49,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Auth />} />
 				<Route path="/home" element={<Home />} />
-				<Route path="/search" element={<Catalog />} />
+				<Route path="/search" element={<Search />} />
 				<Route
 					path="/edit"
 					element={
@@ -61,7 +59,7 @@ function App() {
 					}
 				/>
 				<Route
-					path="/item/:id"
+					path="/animal/:id"
 					element={
 						<ProtectedRoute>
 							<Item />

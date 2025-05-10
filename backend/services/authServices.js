@@ -1,20 +1,20 @@
+import queryDB from "../config/db.js";
+
 import pool from "../config/database.js";
 import bcrypt from "bcrypt";
 
-// реєстрація користувача
-async function registerUser(userName, email, password) {
+async function registerUser(account_type, email, password) {
 	const salt = await bcrypt.genSalt(10);
 	const hashedPassword = await bcrypt.hash(password, salt);
 
-	await pool.query("CALL add_user(?, ?, ?, @new_user_id)", [
-		userName,
-		email,
-		hashedPassword,
-	]);
+	await queryDB(
+        `INSERT INTO Accounts (type, email, password_hash) VALUES (?, ?, ?)`,
+        [account_type, email, hashedPassword]
+    );
 
-	const [newUserId] = await pool.query("SELECT @new_user_id AS new_user_id");
+	const rows = await queryDB(`SELECT id FROM Accounts WHERE email = ?`, [email]);
 
-	return newUserId[0].new_user_id;
+	return rows[0].id;
 }
 
 async function isUserExist(email) {

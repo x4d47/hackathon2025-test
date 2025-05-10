@@ -5,11 +5,12 @@
 
 .bar-product-info_image img {
 	display: inline-block;
-	max-width: 25.6rem;
+	max-width: 25vw;
 }
 
 .bar-product-info_description__full {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	width: 100%;
 }

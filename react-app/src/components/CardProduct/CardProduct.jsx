@@ -1,12 +1,13 @@
 import "./CardProduct.css";
 import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { addItemToFavoritesAction } from "../../store/favoriteActions";
+import { addItemToCartAction } from "../../store/cartActions";
+import { Link } from "react-router-dom";
 
 export default function CardProduct({
 	id,
-	title,
-	description,
+	name,
+	direction = "animal",
 	imgSrc,
 	type = "simple",
 }) {
@@ -15,14 +16,16 @@ export default function CardProduct({
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.auth.user);
 
-	const handleAddToFavorites = () => {
+	const handleAddToCart = () => {
 		if (!user) return;
 
 		dispatch(
-			addItemToFavoritesAction({
+			addItemToCartAction({
 				id,
-				title,
+				name,
 				imgSrc,
+				quantity: 1,
+				bondPercent: 1,
 			})
 		);
 	};
@@ -31,27 +34,32 @@ export default function CardProduct({
 		case "simple":
 			currentCard = (
 				<div className="card card_simple">
-					<img src={imgSrc} alt={title} className="card_img margin-btm-sm" />
-					<h2 className="heading-secondary margin-btm-sm">{title}</h2>
-					<p className="paragraph">{description}</p>
+					<Link to={`/${direction}/${id}`}>
+						<img src={`/${imgSrc}`} className="card_img margin-btm-sm" />
+					</Link>
+					<h2 className="heading-secondary margin-btm-sm">{name}</h2>
 				</div>
 			);
 			break;
 		case "full":
+			console.log("Rendering full card", id); // Додано для дебагу
 			currentCard = (
 				<div className="card card_full">
 					<div id="card__top">
 						<p id="card__top__id">{id}</p>
 
-						<button onClick={handleAddToFavorites} className="card__favorite">
-							<img src="heart.svg" width={32} height={32}></img>
+						<button onClick={handleAddToCart} className="card__favorite">
+							<img src="heart.svg" width={32} height={32} alt="heart" />
 						</button>
 					</div>
 					<div id="card__wrapper">
-						<img src={imgSrc} alt={title} className="card_img margin-btm-sm" />
-						<h2 className="heading-secondary margin-btm-sm">{title}</h2>
-						<p className="paragraph margin-btm-md">{description}</p>
-						<Button tag="link" to={`/item/${id}`} isBig="true">
+						<img
+							src={`/${imgSrc}`}
+							alt={name}
+							className="card_img margin-btm-sm"
+						/>
+						<h2 className="heading-secondary margin-btm-sm">{name}</h2>
+						<Button tag="link" to={`/${direction}/${id}`} isBig="true">
 							View more
 						</Button>
 					</div>
@@ -65,9 +73,12 @@ export default function CardProduct({
 						<p id="card__top__id">{id}</p>
 					</div>
 					<div id="card__wrapper">
-						<img src={imgSrc} alt={title} className="card_img margin-btm-sm" />
-						<h2 className="heading-secondary margin-btm-sm">{title}</h2>
-						<p className="paragraph margin-btm-md">{description}</p>
+						<img
+							src={`/${imgSrc}`}
+							alt={name}
+							className="card_img margin-btm-sm"
+						/>
+						<h2 className="heading-secondary margin-btm-sm">{name}</h2>
 						<div className="card__button_wrapper">
 							<Button
 								tag="link"
@@ -88,5 +99,6 @@ export default function CardProduct({
 			);
 			break;
 	}
+
 	return currentCard;
 }
